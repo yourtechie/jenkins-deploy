@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  jenkins:
+    image: jenkins/jenkins:latest
+    restart: always
+    volumes:
+      - jenkins-data:/var/jenkins_home
+    ports:
+      - '8082:8080'
+      - '50000:50000'
+    networks:
+      - jenkins
+
+volumes:
+  jenkins-data:
+
+networks:
+  jenkins:
+    external: true
